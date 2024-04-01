@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"os"
+	"social-todo-list/middleware"
 	ginitem "social-todo-list/module/item/transport/gin"
 
 	"github.com/gin-gonic/gin"
@@ -25,6 +26,7 @@ func main() {
 	log.Println("DB Connection:", db)
 
 	r := gin.Default()
+	r.Use(middleware.Recover())
 
 	v1 := r.Group("/v1")
 	{
