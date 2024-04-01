@@ -28,7 +28,7 @@ func (biz *listItemBiz) ListItem(
 	filter *model.Filter,
 	paging *common.Paging,
 ) ([]model.TodoItem, error) {
-	data, err := biz.store.ListItem(ctx, filter, paging)
+	data, err := biz.store.ListItem(ctx, filter, paging, "Owner")
 	if err != nil {
 		return nil, common.ErrCannotListEntity(model.EntityName, err)
 	}
